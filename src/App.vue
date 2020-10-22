@@ -1,30 +1,41 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  <AppHeader />
+  <main class="app-main">
+    <RouterView />
+  </main>
+  <AppFooter />
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script >
+  import { defineAsyncComponent } from 'vue'
+  import { useStore } from "vuex";
 
-#nav {
-  padding: 30px;
+  const AppHeader = defineAsyncComponent(() => import('@/components/AppHeader.vue'));
+  const AppFooter = defineAsyncComponent(() => import('@/components/AppFooter.vue'));
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+  export default {
+    name: 'App',
+    setup() {
+      const store = useStore();
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+      store.dispatch('contacts/loadContacts');
+    },
+    components: {
+      AppHeader,
+      AppFooter
+    },
   }
-}
+</script>
+
+<style lang="scss">
+  #app {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+  }
+
+  .app-main {
+    background-color: $color-background--main;
+    padding: 50px 0;
+  }
 </style>

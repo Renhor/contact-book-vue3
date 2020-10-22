@@ -1,0 +1,27 @@
+$font-helvetica: "Helvetica Neue", Helvetica, sans-serif;
+
+$font-family: $font-helvetica;
+
+$font-size: 16px;
+$line-height: 120%;
+
+$font-size--small: 12px;
+$font-size--smaller: 14px;
+$font-size--medium: $font-size;
+$font-size--bigger: 24px;
+$font-size--big: 32px;
+$font-size--biggest: 36px;
+
+$line-height--small: 100%;
+$line-height--medium: $line-height;
+$line-height--big: 150%;
+
+$font-size-h1: $font-size--biggest;
+$font-size-h2: $font-size--big;
+$font-size-h3: $font-size--bigger;
+$font-size-h4: $font-size--medium;
+$font-size-h5: $font-size--smaller;
+$font-size-h6: $font-size--small;
+
+$line-height--heading: $line-height--medium;
+$line-height--text: $line-height--medium;
