@@ -55,6 +55,9 @@
       };
       const onUpdate = field => {
         status.value = 'idle';
+
+        if (field.name === props.field.name && field.value === props.field.value) return ;
+
         emit('update', {
           id: props.field.id,
           ...field

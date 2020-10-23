@@ -1,7 +1,10 @@
 import { LocalContacts } from "@/services/LocalContacts";
 
 const state = {
-  contacts: []
+  contacts: [],
+  history: [],
+  historyActual: null,
+  historyStep: -1, // initial
 };
 
 const getters = {
@@ -10,7 +13,16 @@ const getters = {
   },
   contactById(state) {
     return (id) => state.contacts.find(contact => contact.id === id);
-  }
+  },
+  history(state) {
+    return state.history
+  },
+  historyStep(state) {
+    return state.historyStep
+  },
+  historyActual(state) {
+    return state.historyActual
+  },
 };
 
 const mutations = {
@@ -39,6 +51,25 @@ const mutations = {
     const fieldIdx = contact.fields.findIndex(({ id }) => id === field.id);
     contact.fields[fieldIdx] = { ...field };
   },
+  SET_CONTACT_FIELDS(state, { contactId, fields }) {
+    const contact = state.contacts.find(({ id }) => id === contactId);
+    contact.fields = [ ...fields ];
+  },
+
+  PUSH_HISTORY(state, step) {
+    state.history.push(step);
+  },
+  SAVE_ACTUAL_HISTORY(state, fields) {
+    state.historyActual = fields;
+  },
+  CLEAR_HISTORY(state) {
+    state.history = [];
+    state.historyActual = null;
+    state.historyStep = -1;
+  },
+  SET_STEP_HISTORY(state, stepNum) {
+    state.historyStep = stepNum;
+  },
 };
 
 const actions = {
@@ -50,12 +81,10 @@ const actions = {
       fields: []
     };
 
-    LocalContacts.create(contact);
     commit('ADD_CONTACT', contact);
   },
 
   removeContact({ commit }, id) {
-    LocalContacts.remove(id);
     commit('REMOVE_CONTACT', id);
   },
 
@@ -75,17 +104,49 @@ const actions = {
       field: newField,
       contactId
     });
-    LocalContacts.save(getters.contacts);
   },
 
   removeContactField({ commit, getters }, payload) {
     commit('REMOVE_CONTACT_FIELD', payload);
-    LocalContacts.save(getters.contacts);
   },
 
   updateContactField({ commit, getters }, payload) {
     commit('UPDATE_CONTACT_FIELD', payload);
-    LocalContacts.save(getters.contacts);
+  },
+
+  saveHistory({ commit, getters }, { contactId, actionType }) {
+    const contact = getters.contactById(contactId);
+    const step = {
+      fields: contact.fields.map(f => ({ ...f })),
+      actionType
+    };
+    commit('PUSH_HISTORY', step);
+    commit('SET_STEP_HISTORY', getters.history.length - 1);
+  },
+
+  saveHistoryActual({ commit, getters }, contactId) {
+    const contact = getters.contactById(contactId);
+    const actualFields = contact.fields.map(f => ({ ...f }))
+    commit('SAVE_ACTUAL_HISTORY', actualFields);
+  },
+
+  clearHistory({ commit }) {
+    commit('CLEAR_HISTORY');
+  },
+
+  stepBackHistory({ getters, dispatch, commit }, contactId) {
+    const { fields } = getters.history[getters.historyStep];
+
+    commit('SET_CONTACT_FIELDS', { contactId, fields});
+    commit('SET_STEP_HISTORY', getters.historyStep - 1);
+  },
+  stepNextHistory({ getters, dispatch, commit }, contactId) {
+    const step = getters.historyStep + 1;
+    const historyStep = getters.history[step + 1];
+    const fields = historyStep ? historyStep.fields : getters.historyActual;
+
+    commit('SET_CONTACT_FIELDS', { contactId, fields });
+    commit('SET_STEP_HISTORY', step);
   },
 };
 

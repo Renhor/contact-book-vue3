@@ -1,4 +1,4 @@
-import { createStore, } from 'vuex';
+import { createStore, createLogger } from 'vuex';
 import { contacts } from "@/store/modules/contacts";
 
 const modules = {
@@ -14,5 +14,6 @@ export default createStore({
   state,
   getters,
   mutations,
-  actions
+  actions,
+  plugins: [createLogger()]
 });
