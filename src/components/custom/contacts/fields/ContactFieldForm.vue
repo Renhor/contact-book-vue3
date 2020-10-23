@@ -76,7 +76,7 @@
         for (const key in fields) {
           const field = fields[key];
 
-          field.value = 'asdasd';
+          field.value = '';
         }
       }
       const onSubmit = () => {
