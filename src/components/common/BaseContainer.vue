@@ -16,11 +16,11 @@
 <style lang="scss">
   .base-container {
     width: 100%;
-    max-width: 728px;
+    max-width: 738px;
     margin: 0 auto;
 
     @include breakpoint('phone') {
-      margin: 0 20px;
+      margin: 0 15px;
       width: auto;
     }
   }

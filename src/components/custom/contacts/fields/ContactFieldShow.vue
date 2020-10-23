@@ -31,5 +31,9 @@
     width: 120px;
     flex-grow: 1;
     padding: 10px;
+
+    @include breakpoint('phone') {
+      width: 100px;
+    }
   }
 </style>

@@ -16,5 +16,9 @@
     padding: 20px;
     background-color: $color-background--block;
     box-shadow: $box-shadow--light;
+
+    @include breakpoint('phone') {
+      padding: 15px;
+    }
   }
 </style>

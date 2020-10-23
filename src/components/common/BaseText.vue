@@ -64,7 +64,7 @@
     }
 
     &.-secondary {
-      color: $colobase-text--secondary;
+      color: $color-text--secondary;
     }
   }
 </style>

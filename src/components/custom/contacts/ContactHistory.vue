@@ -1,29 +1,35 @@
 <template>
   <div class="contact-history">
-    <BaseButtonsContainer
-      btn-align="center">
-      <BaseButton
-        square
-        :disabled="!canStepBack"
-        @click="stepBack">
-        <BaseIcon
-          iconColor="#FFF"
-          iconName="Step back">
-          <IconBack />
-        </BaseIcon>
-      </BaseButton>
+    <div class="contact-history_header">
+      <BaseHeading type="h4">
+        Time travel
+      </BaseHeading>
 
-      <BaseButton
-        square
-        :disabled="!canStepNext"
-        @click="stepNext">
-        <BaseIcon
-          iconColor="#FFF"
-          iconName="Next step">
-          <IconNext />
-        </BaseIcon>
-      </BaseButton>
-    </BaseButtonsContainer>
+      <BaseButtonsContainer
+        btn-align="center">
+        <BaseButton
+          square
+          :disabled="!canStepBack"
+          @click="stepBack">
+          <BaseIcon
+            iconColor="#FFF"
+            iconName="Step back">
+            <IconBack />
+          </BaseIcon>
+        </BaseButton>
+
+        <BaseButton
+          square
+          :disabled="!canStepNext"
+          @click="stepNext">
+          <BaseIcon
+            iconColor="#FFF"
+            iconName="Next step">
+            <IconNext />
+          </BaseIcon>
+        </BaseButton>
+      </BaseButtonsContainer>
+    </div>
 
     <BaseSeparator />
 
@@ -55,6 +61,7 @@
   const BaseButton = defineAsyncComponent(() => import('@/components/common/BaseButton'));
   const BaseIcon = defineAsyncComponent(() => import('@/components/common/BaseIcon'));
   const BaseSeparator = defineAsyncComponent(() => import('@/components/common/BaseSeparator'));
+  const BaseHeading = defineAsyncComponent(() => import('@/components/common/BaseHeading'));
   const BaseText = defineAsyncComponent(() => import('@/components/common/BaseText'));
   const IconBack = defineAsyncComponent(() => import('@/components/common/icons/IconBack'));
   const IconNext = defineAsyncComponent(() => import('@/components/common/icons/IconNext'));
@@ -104,12 +111,23 @@
       BaseButton,
       BaseButtonsContainer,
       BaseSeparator,
-      BaseText
+      BaseText,
+      BaseHeading
     },
   }
 </script>
 
 <style lang="scss">
+  .contact-history_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .base-button {
+      width: 44px;
+    }
+  }
+
   .contact-history_list {
 
   }

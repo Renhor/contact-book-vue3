@@ -127,6 +127,10 @@
 
       border-radius: 2px 0 0 2px;
 
+      @include breakpoint('phone') {
+        width: 100px;
+      }
+
       &:not(:first-of-type) {
         border-radius: 0 2px 2px 0;
       }

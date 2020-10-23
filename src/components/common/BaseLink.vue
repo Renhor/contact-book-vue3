@@ -25,6 +25,6 @@
 
 <style lang="scss">
   .base-link {
-    color: $colobase-link;
+    color: $color-link;
   }
 </style>

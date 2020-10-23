@@ -126,13 +126,28 @@
     display: flex;
     align-items: flex-start;
 
-    .base-block:nth-of-type(1) {
+    .base-block:first-of-type {
       flex: 1 1 200px;
       margin-right: 20px;
     }
 
-    .base-block:nth-of-type(2) {
-      flex: 0 0 200px;
+    .base-block:last-of-type {
+      flex: 0 0 250px;
+    }
+
+    @include breakpoint('phone') {
+      flex-direction: column;
+
+      .base-block {
+        flex: 1 1 100% !important;
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 15px;
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
     }
   }
 </style>

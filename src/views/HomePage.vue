@@ -69,12 +69,13 @@
       const confirmationModalHeading = computed(() => {
         if (contactToRemove.value === undefined) return '';
 
-        return contactToRemove.value.name;
+        return `Remove contact ${contactToRemove.value.name}`;
       });
       const confirmationModalText = computed(() => {
         if (contactToRemove.value === undefined) return '';
 
-        return contactToRemove.value.name;
+        return `This action will permanently remove contact '${contactToRemove.value.name}'` +
+          ' from your contact book. Continue?'
       });
 
       const openConfirmationModal = () => {
