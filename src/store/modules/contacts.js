@@ -59,6 +59,9 @@ const mutations = {
   PUSH_HISTORY(state, step) {
     state.history.push(step);
   },
+  SPLICE_HISTORY(state) {
+    state.history.length = state.historyStep + 1;
+  },
   SAVE_ACTUAL_HISTORY(state, fields) {
     state.historyActual = fields;
   },
@@ -120,6 +123,11 @@ const actions = {
       fields: contact.fields.map(f => ({ ...f })),
       actionType
     };
+
+    if (getters.historyStep !== getters.history.length) {
+      commit('SPLICE_HISTORY');
+    }
+
     commit('PUSH_HISTORY', step);
     commit('SET_STEP_HISTORY', getters.history.length - 1);
   },
@@ -140,6 +148,7 @@ const actions = {
     commit('SET_CONTACT_FIELDS', { contactId, fields});
     commit('SET_STEP_HISTORY', getters.historyStep - 1);
   },
+
   stepNextHistory({ getters, dispatch, commit }, contactId) {
     const step = getters.historyStep + 1;
     const historyStep = getters.history[step + 1];
