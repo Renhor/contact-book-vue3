@@ -10,8 +10,8 @@
   import { defineAsyncComponent } from 'vue'
   import { useStore } from "vuex";
 
-  const AppHeader = defineAsyncComponent(() => import('@/components/AppHeader.vue'));
-  const AppFooter = defineAsyncComponent(() => import('@/components/AppFooter.vue'));
+  const AppHeader = defineAsyncComponent(() => import('@/components/AppHeader'));
+  const AppFooter = defineAsyncComponent(() => import('@/components/AppFooter'));
 
   export default {
     name: 'App',

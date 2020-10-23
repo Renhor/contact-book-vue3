@@ -16,7 +16,7 @@
 <script >
   import { defineAsyncComponent } from 'vue';
 
-  const ContactListItem = defineAsyncComponent(() => import('@/components/custom/contacts/list/ContactListItem.vue'))
+  const ContactListItem = defineAsyncComponent(() => import('@/components/custom/contacts/list/ContactListItem'))
 
   export default {
     name: 'ContactList',

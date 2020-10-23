@@ -64,6 +64,7 @@
     border-radius: $border-radius--default;
     padding: 10px;
     cursor: pointer;
+    transition: $transition-ease--default;
 
     &:disabled {
       cursor: not-allowed;

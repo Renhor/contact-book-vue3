@@ -38,13 +38,13 @@
   import { useStore } from "vuex";
   import { useRouter } from "vue-router";
 
-  const BaseContainer = defineAsyncComponent(() => import('@/components/common/BaseContainer.vue'));
-  const BaseHeading = defineAsyncComponent(() => import('@/components/common/BaseHeading.vue'));
-  const BaseBlock = defineAsyncComponent(() => import('@/components/common/BaseBlock.vue'));
-  const BaseSeparator = defineAsyncComponent(() => import('@/components/common/BaseSeparator.vue'));
-  const ContactList = defineAsyncComponent(() => import('@/components/custom/contacts/list/ContactList.vue'));
-  const ContactCreate = defineAsyncComponent(() => import('@/components/custom/contacts/ContactCreate.vue'));
-  const ConfirmationModal = defineAsyncComponent(() => import('@/components/common/modals/ConfirmationModal.vue'));
+  const BaseContainer = defineAsyncComponent(() => import('@/components/common/BaseContainer'));
+  const BaseHeading = defineAsyncComponent(() => import('@/components/common/BaseHeading'));
+  const BaseBlock = defineAsyncComponent(() => import('@/components/common/BaseBlock'));
+  const BaseSeparator = defineAsyncComponent(() => import('@/components/common/BaseSeparator'));
+  const ContactList = defineAsyncComponent(() => import('@/components/custom/contacts/list/ContactList'));
+  const ContactCreate = defineAsyncComponent(() => import('@/components/custom/contacts/ContactCreate'));
+  const ConfirmationModal = defineAsyncComponent(() => import('@/components/common/modals/ConfirmationModal'));
 
   export default {
     name: 'HomePage',

@@ -1,16 +1,22 @@
 <template>
-  <div class="base-input">
+  <label
+    class="base-input"
+    :class="className">
     <input
       class="base-input_inner"
       type="text"
       :value="value"
       :placeholder="placeholder"
       @input="onInput"
+      @focusin="focused = true"
+      @focusout="focused = false"
     />
-  </div>
+  </label>
 </template>
 
 <script>
+  import { computed, ref } from 'vue';
+
   export default {
     name: 'BaseInput',
     props: {
@@ -29,12 +35,20 @@
       }
     },
     setup(props, { emit }) {
+      const focused = ref(false);
+      const className = computed(() => [
+        focused.value && '-focused'
+      ]);
+
       const onInput = ($event) => {
         emit('update:value', $event.target.value)
       }
 
       return {
-        onInput
+        focused,
+        className,
+
+        onInput,
       };
     }
   };
@@ -44,7 +58,11 @@
   .base-input {
     border: $border--default;
     border-radius: $border-radius--default;
-    padding: 10px;
+    padding: 9px;
+
+    &.-focused {
+      border-color: $color-primary;
+    }
   }
 
   .base-input_inner {

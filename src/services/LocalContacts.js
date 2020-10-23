@@ -26,8 +26,6 @@ export class LocalContacts {
 
   static update(id, newData) {
     const contacts = this.getAll().map((contact) => {
-      if (contact.id !== id) return contact;
-
       return contact.id !== id
         ? contact
         : { ...contact, ...newData };
@@ -37,8 +35,6 @@ export class LocalContacts {
 
   static remove(id) {
     const contacts = this.getAll().filter(contact => contact.id !== id);
-    console.log(id)
-    console.log(contacts)
     this.save(contacts);
   }
 

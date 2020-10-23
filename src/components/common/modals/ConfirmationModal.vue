@@ -40,13 +40,13 @@
 <script >
   import { defineAsyncComponent } from 'vue';
 
-  const BaseModal = defineAsyncComponent(() => import('@/components/common/BaseModal.vue'));
-  const BaseBlock = defineAsyncComponent(() => import('@/components/common/BaseBlock.vue'));
-  const BaseButtonsContainer = defineAsyncComponent(() => import('@/components/common/BaseButtonsContainer.vue'));
-  const BaseButton = defineAsyncComponent(() => import('@/components/common/BaseButton.vue'));
-  const BaseText = defineAsyncComponent(() => import('@/components/common/BaseText.vue'));
-  const BaseHeading = defineAsyncComponent(() => import('@/components/common/BaseHeading.vue'));
-  const BaseSeparator = defineAsyncComponent(() => import('@/components/common/BaseSeparator.vue'));
+  const BaseModal = defineAsyncComponent(() => import('@/components/common/BaseModal'));
+  const BaseBlock = defineAsyncComponent(() => import('@/components/common/BaseBlock'));
+  const BaseButtonsContainer = defineAsyncComponent(() => import('@/components/common/BaseButtonsContainer'));
+  const BaseButton = defineAsyncComponent(() => import('@/components/common/BaseButton'));
+  const BaseText = defineAsyncComponent(() => import('@/components/common/BaseText'));
+  const BaseHeading = defineAsyncComponent(() => import('@/components/common/BaseHeading'));
+  const BaseSeparator = defineAsyncComponent(() => import('@/components/common/BaseSeparator'));
 
   export default {
     name: 'ConfirmationModal',

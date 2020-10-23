@@ -22,9 +22,9 @@
 <script >
   import { defineAsyncComponent } from 'vue';
 
-  const ContactListItemControls = defineAsyncComponent(() => import('@/components/custom/contacts/list/ContactListItemControls.vue'))
-  const BaseIcon = defineAsyncComponent(() => import('@/components/common/BaseIcon.vue'));
-  const IconArrow = defineAsyncComponent(() => import('@/components/common/icons/IconArrowRight.vue'));
+  const ContactListItemControls = defineAsyncComponent(() => import('@/components/custom/contacts/list/ContactListItemControls'))
+  const BaseIcon = defineAsyncComponent(() => import('@/components/common/BaseIcon'));
+  const IconArrow = defineAsyncComponent(() => import('@/components/common/icons/IconArrowRight'));
 
   export default {
     name: 'ContactListItem',

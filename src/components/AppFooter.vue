@@ -23,8 +23,8 @@
 <script >
   import { defineAsyncComponent } from 'vue';
 
-  const BaseText = defineAsyncComponent(() => import('@/components/common/BaseText.vue'));
-  const BaseLink = defineAsyncComponent(() => import('@/components/common/BaseLink.vue'));
+  const BaseText = defineAsyncComponent(() => import('@/components/common/BaseText'));
+  const BaseLink = defineAsyncComponent(() => import('@/components/common/BaseLink'));
 
   export default {
     name: 'AppFooter',

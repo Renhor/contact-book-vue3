@@ -7,9 +7,19 @@ const routes = [
     component: () => import('@/views/HomePage.vue'),
   },
   {
-    path: '/contact',
+    path: '/contacts/:id',
     name: 'Contact',
-    component: () => import('@/views/ContactPage.vue')
+    component: () => import('@/views/ContactPage.vue'),
+    props: true
+  },
+  {
+    path: '/404',
+    name: '404',
+    component: () => import('@/views/NotFoundPage.vue')
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/404'
   }
 ]
 

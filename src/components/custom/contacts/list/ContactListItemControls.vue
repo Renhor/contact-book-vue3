@@ -18,10 +18,10 @@
 <script >
   import { defineAsyncComponent } from 'vue';
 
-  const BaseButton = defineAsyncComponent(() => import('@/components/common/BaseButton.vue'));
-  const BaseButtonsContainer = defineAsyncComponent(() => import('@/components/common/BaseButtonsContainer.vue'));
-  const BaseIcon = defineAsyncComponent(() => import('@/components/common/BaseIcon.vue'));
-  const IconDelete = defineAsyncComponent(() => import('@/components/common/icons/IconDelete.vue'));
+  const BaseButton = defineAsyncComponent(() => import('@/components/common/BaseButton'));
+  const BaseButtonsContainer = defineAsyncComponent(() => import('@/components/common/BaseButtonsContainer'));
+  const BaseIcon = defineAsyncComponent(() => import('@/components/common/BaseIcon'));
+  const IconDelete = defineAsyncComponent(() => import('@/components/common/icons/IconDelete'));
 
   export default {
     name: 'ContactListItemControls',

@@ -22,8 +22,8 @@
 <script >
   import { defineAsyncComponent, reactive, computed } from 'vue';
 
-  const BaseInput = defineAsyncComponent(() => import('@/components/common/form/BaseInput.vue'));
-  const BaseButton = defineAsyncComponent(() => import('@/components/common/BaseButton.vue'));
+  const BaseInput = defineAsyncComponent(() => import('@/components/common/form/BaseInput'));
+  const BaseButton = defineAsyncComponent(() => import('@/components/common/BaseButton'));
 
   export default {
     name: 'ContactCreate',
@@ -63,6 +63,12 @@
 
     .base-input {
       flex-grow: 1;
+      border-radius: 2px 0 0 2px;
+      border-right: 0;
+    }
+
+    .base-button {
+      border-radius: 0 2px 2px 0;
     }
   }
 </style>
